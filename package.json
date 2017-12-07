@@ -1,0 +1,36 @@
+{
+  "name": "react-server-rendering",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --port 3000 --hot --watch --color --open --history-api-fallback",
+    "build": "webpack --watch"
+  },
+  "author": "windyuan",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "isomorphic-fetch": "^2.2.1",
+    "jsx-loader": "^0.13.2",
+    "node-sass": "^4.7.2",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "react-router-config": "^1.0.0-beta.4",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "request": "^2.83.0",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  }
+}
