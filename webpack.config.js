@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 var config = {
    entry: {
-      bundle: './client/app.js'
+      bundle: './client/index.js'
    },
    output: {
       path: __dirname + '/dist',

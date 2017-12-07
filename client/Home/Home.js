@@ -3,7 +3,7 @@ import React, {PureComponent} from 'react';
 
 class Home extends PureComponent {
    render() {
-      return <Label Label={'Home'} />;
+      return <Label label={'Home'} />;
    }
 }
 
