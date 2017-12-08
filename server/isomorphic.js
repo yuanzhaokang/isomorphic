@@ -1,34 +1,41 @@
 import routers from '../router/router';
 import AppContainer from '../client/AppContainer';
+import store from '../common/getStore';
 var router = require('express').Router();
-import { matchRoutes } from 'react-router-config';
-import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
+import {renderRoutes, matchRoutes} from 'react-router-config';
+import {renderToString} from 'react-dom/server';
+import {StaticRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
 import React from 'react';
 
 let context = {};
 
 router.all('*', (req, res) => {
-    // let branch = matchRoutes(routers);
-    // branch.map((route)=>{
-    //     return
-    // })
-    let content = renderToString(
-        <StaticRouter context={context}>
-            <AppContainer />
-        </StaticRouter >
-    );
+   const branch = matchRoutes(routers, req.url);
 
-    console.log(content);
+   const promises = branch.map((route) => {
+      return route.route.component.fetchData(store);
+   });
 
-    let html = `
-        <body>
-            <div id="app">${content}</div>
-            <script src="bundle.js"></script>
-        </body>
-    `;
+   Promise.all(promises).then(() => {
+      let content = renderToString(
+         <StaticRouter location={req.url} context={context}>
+            <Provider store={store}>
+               {renderRoutes(routers)}
+            </Provider>
+         </StaticRouter >
+      );
 
-    res.end(html);
+      let html = `
+           <body>
+           <script>window.serverState=${JSON.stringify(store.getState())}</script>
+               <div id="app">${content}</div>
+               <script src="bundle.js"></script>
+           </body>
+       `;
+
+      res.end(html);
+   });
 });
 
 module.exports = router;

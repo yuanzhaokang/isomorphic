@@ -19,7 +19,12 @@ var config = {
       //    path.resolve("./node_modules"),
       //    path.resolve("./")
       // ]
-   }
+   },
+   plugins: [
+      new webpack.DefinePlugin({
+         __isClient: true
+      })
+   ]
 };
 
 module.exports = config;

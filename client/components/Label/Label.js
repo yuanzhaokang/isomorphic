@@ -10,4 +10,8 @@ class Label extends PureComponent {
     }
 }
 
+Label.defaultProps = {
+   className: ''
+};
+
 export default Label;

@@ -11,6 +11,7 @@ server.use(bodyParser.urlencoded({extended: false}));
 server.use(cookieParser());
 
 server.use(express.static(path.join(__dirname, './dist/')));
+server.use(express.static(path.join(__dirname, './static/')));
 
 server.use('/', isomorphic);
 

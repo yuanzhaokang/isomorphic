@@ -1,16 +1,28 @@
-import { START } from '../action/action';
+import {HOME, ABOUT} from '../action/action';
 
 let state = {
-    world: ''
+   home: 'home init',
+   about: 'about init'
 };
 
+try {
+   if(__isClient) {
+      state = Object.assign({}, window.serverState);
+   }
+} catch(error) {
+
+}
+
 function reducer(initState = state, action) {
-    switch (action.type) {
-        case START:
-            return { world: 'hello' };
-        default:
-            return initState;
-    }
+   switch(action.type) {
+      case HOME:
+         return {home: action.home};
+      case ABOUT: {
+         return {about: action.about};
+      }
+      default:
+         return initState;
+   }
 }
 
 export default reducer;

@@ -1,5 +1,7 @@
-const START = 'start';
+const HOME = 'home';
+const ABOUT = 'about';
 
 export {
-    START
+   HOME,
+   ABOUT
 };
