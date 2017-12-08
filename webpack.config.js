@@ -11,7 +11,8 @@ var config = {
    },
    module: {
       rules: [
-         {test: /\.js$/, use: 'babel-loader'}
+         {test: /\.js$/, use: 'babel-loader'},
+         {test: /\.jsx$/, use: 'babel-loader!jsx-loader'}
       ]
    },
    resolve: {
@@ -22,7 +23,7 @@ var config = {
    },
    plugins: [
       new webpack.DefinePlugin({
-         __isClient: true
+         __isServer: true, // is server rendering.
       })
    ]
 };

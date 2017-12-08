@@ -1,13 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 
 class Label extends PureComponent {
-    render() {
-        const { label, className} = this.props;
+   render() {
+      const {label, className, ...restProps} = this.props;
 
-        return (
-            <span className={`${className}`} >{label}</span>
-        );
-    }
+      return (
+         <span className={`${className}`} {...restProps} >{label}</span>
+      );
+   }
 }
 
 Label.defaultProps = {

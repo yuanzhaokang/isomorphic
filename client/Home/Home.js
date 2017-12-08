@@ -8,32 +8,22 @@ import 'isomorphic-fetch';
 import _ from 'lodash';
 
 class Home extends PureComponent {
-   componentWillMount() {
-      try {
-         if(__isClient) {
-            console.log('--- is clinet ---> ', window.serverState);
-         }
-      } catch(error) {
-
-      }
-   }
-
    componentDidMount() {
-      console.log("------- did mount --------");
-      if(_.isEqual(store.getState(), window.serverState)) {
-         return;
+      try {
+         if(__isServer) {
+            return;
+         }
+      } catch(e) {
       }
 
       Home.fetchData(store);
    }
 
    render() {
-      console.log('render --------');
-      return <Label label={'Home --- ' + this.props.home} />;
+      return <Label label={'Home --- ' + this.props.home} onClick={this.props.fetchNewData} />;
    }
 
    static fetchData(store) {
-      console.log("------- fetch --------");
       return new Promise((resolve, rej) => {
          fetch(config.server + ":" + config.port + '/data/a.json')
             .then((res) => {
@@ -45,7 +35,7 @@ class Home extends PureComponent {
                   .then((data) => {
                      store.dispatch({
                         type: HOME,
-                        home: 'data.home'
+                        home: data.home
                      });
 
                      resolve(data);
@@ -58,10 +48,29 @@ class Home extends PureComponent {
    };
 }
 
+function fetchNewData() {
+   fetch(`${config.server}:${config.port}/data/home.json`)
+      .then((res) => {
+         res.json()
+            .then((data) => {
+               store.dispatch({
+                  type: HOME,
+                  home: data.home
+               });
+            });
+      });
+}
+
 const mapStateToProps = (state, ownProps) => {
    return {
       home: state.home
    };
 };
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch, ownProps) => {
+   return {
+      fetchNewData: fetchNewData
+   }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

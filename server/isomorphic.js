@@ -10,7 +10,7 @@ import React from 'react';
 
 let context = {};
 
-router.all('*', (req, res) => {
+router.all('*', (req, res, next) => {
    const branch = matchRoutes(routers, req.url);
 
    const promises = branch.map((route) => {

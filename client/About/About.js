@@ -5,12 +5,18 @@ import store from '../../common/getStore';
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import 'isomorphic-fetch';
+import _ from 'lodash';
 
 class About extends PureComponent {
    componentDidMount() {
-      // console.log("1");
+      try {
+         if(__isServer) {
+            return;
+         }
+      } catch(error) {
+      }
+
       About.fetchData(store);
-      // console.log("2");
    }
 
    render() {

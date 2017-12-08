@@ -6,7 +6,7 @@ let state = {
 };
 
 try {
-   if(__isClient) {
+   if(__isServer) {
       state = Object.assign({}, window.serverState);
    }
 } catch(error) {
