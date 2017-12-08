@@ -18209,7 +18209,7 @@ var Home = function (_PureComponent) {
 }(_react.PureComponent);
 
 function fetchNewData() {
-   fetch(_config2.default.server + ':' + _config2.default.port + '/data/home.json').then(function (res) {
+   fetch(_config2.default.server + ':' + _config2.default.port + '/req/getHome').then(function (res) {
       res.json().then(function (data) {
          _getStore2.default.dispatch({
             type: _action.HOME,

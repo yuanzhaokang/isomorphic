@@ -17,25 +17,30 @@ router.all('*', (req, res, next) => {
       return route.route.component.fetchData(store);
    });
 
-   Promise.all(promises).then(() => {
-      let content = renderToString(
-         <StaticRouter location={req.url} context={context}>
-            <Provider store={store}>
-               {renderRoutes(routers)}
-            </Provider>
-         </StaticRouter >
-      );
+   if(promises.length > 0) {
+      Promise.all(promises).then(() => {
+         let content = renderToString(
+            <StaticRouter location={req.url} context={context}>
+               <Provider store={store}>
+                  {renderRoutes(routers)}
+               </Provider>
+            </StaticRouter >
+         );
 
-      let html = `
-           <body>
-           <script>window.serverState=${JSON.stringify(store.getState())}</script>
-               <div id="app">${content}</div>
-               <script src="bundle.js"></script>
-           </body>
-       `;
+         let html = `
+              <body>
+              <script>window.serverState=${JSON.stringify(store.getState())}</script>
+                  <div id="app">${content}</div>
+                  <script src="bundle.js"></script>
+              </body>
+          `;
 
-      res.end(html);
-   });
+         res.end(html);
+      });
+   }
+   else {
+      next();
+   }
 });
 
 module.exports = router;

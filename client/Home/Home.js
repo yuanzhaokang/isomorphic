@@ -49,7 +49,7 @@ class Home extends PureComponent {
 }
 
 function fetchNewData() {
-   fetch(`${config.server}:${config.port}/data/home.json`)
+   fetch(`${config.server}:${config.port}/req/getHome`)
       .then((res) => {
          res.json()
             .then((data) => {
