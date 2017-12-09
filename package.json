@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --port 3000 --hot --watch --color --open --history-api-fallback",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "server": "babel-node index.js"
   },
   "author": "windyuan",
   "license": "MIT",
