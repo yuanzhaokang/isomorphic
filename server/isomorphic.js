@@ -54,7 +54,10 @@ router.all('*', (req, res, next) => {
          `;
 
          res.end(html);
-      });
+      })
+         .catch((err) => {
+            console.error(err);
+         });
    }
    else {
       next();

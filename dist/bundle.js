@@ -14050,17 +14050,21 @@ var About = function (_PureComponent) {
       key: 'fetchData',
       value: function fetchData(store) {
          return new Promise(function (resolve, rej) {
-            fetch(_config2.default.server + ":" + _config2.default.port + '/data/a.json').then(function (res) {
-               res.json().then(function (data) {
-                  store.dispatch({
-                     type: _action.ABOUT,
-                     about: data.about
-                  });
-                  resolve(data);
-               });
-            }).catch(function (error) {
-               console.error(error);
-            });
+            // fetch(config.server + ":" + config.port + '/data/a.json')
+            //    .then((res) => {
+            //       res.json()
+            //          .then((data) => {
+            //             store.dispatch({
+            //                type: ABOUT,
+            //                about: data.about
+            //             });
+            //             resolve(data);
+            //          });
+            //    })
+            //    .catch((error) => {
+            //       console.error(error);
+            //    })
+            resolve('about');
          });
       }
    }]);
@@ -18193,22 +18197,30 @@ var Home = function (_PureComponent) {
       key: 'fetchData',
       value: function fetchData(store) {
          return new Promise(function (resolve, rej) {
-            fetch(_config2.default.server + ":" + _config2.default.port + '/data/a.json').then(function (res) {
-               if (res.status != 200) {
-                  rej("error");
-               }
+            // fetch(config.server + ":" + config.port + '/data/a.json')
+            //    .then((res) => {
+            //       if(res.status != 200) {
+            //          rej("error");
+            //       }
 
-               res.json().then(function (data) {
-                  store.dispatch({
-                     type: _action.HOME,
-                     home: data.home
-                  });
+            //       res.text()
+            //          .then((data) => {
+            //             data = JSON.parse(data);
+            //             store.dispatch({
+            //                type: HOME,
+            //                home: data.home
+            //             });
 
-                  resolve(data);
-               });
-            }).catch(function (error) {
-               console.error(error);
-            });
+            //             resolve(data);
+            //          })
+            //          .catch(err=>{
+            //             console.log(err);
+            //          });
+            //    })
+            //    .catch((error) => {
+            //       console.error(error);
+            //    });
+            resolve("hello world");
          });
       }
    }]);
@@ -18224,6 +18236,8 @@ function fetchNewData() {
             home: data.home
          });
       });
+   }).catch(function (err) {
+      console.error(err);
    });
 }
 

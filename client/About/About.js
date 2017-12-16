@@ -25,20 +25,21 @@ class About extends PureComponent {
 
    static fetchData(store) {
       return new Promise((resolve, rej) => {
-         fetch(config.server + ":" + config.port + '/data/a.json')
-            .then((res) => {
-               res.json()
-                  .then((data) => {
-                     store.dispatch({
-                        type: ABOUT,
-                        about: data.about
-                     });
-                     resolve(data);
-                  });
-            })
-            .catch((error) => {
-               console.error(error);
-            })
+         // fetch(config.server + ":" + config.port + '/data/a.json')
+         //    .then((res) => {
+         //       res.json()
+         //          .then((data) => {
+         //             store.dispatch({
+         //                type: ABOUT,
+         //                about: data.about
+         //             });
+         //             resolve(data);
+         //          });
+         //    })
+         //    .catch((error) => {
+         //       console.error(error);
+         //    })
+         resolve('about');
       });
    };
 }

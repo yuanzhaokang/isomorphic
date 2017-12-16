@@ -25,25 +25,30 @@ class Home extends PureComponent {
 
    static fetchData(store) {
       return new Promise((resolve, rej) => {
-         fetch(config.server + ":" + config.port + '/data/a.json')
-            .then((res) => {
-               if(res.status != 200) {
-                  rej("error");
-               }
+         // fetch(config.server + ":" + config.port + '/data/a.json')
+         //    .then((res) => {
+         //       if(res.status != 200) {
+         //          rej("error");
+         //       }
 
-               res.json()
-                  .then((data) => {
-                     store.dispatch({
-                        type: HOME,
-                        home: data.home
-                     });
+         //       res.text()
+         //          .then((data) => {
+         //             data = JSON.parse(data);
+         //             store.dispatch({
+         //                type: HOME,
+         //                home: data.home
+         //             });
 
-                     resolve(data);
-                  });
-            })
-            .catch((error) => {
-               console.error(error);
-            });
+         //             resolve(data);
+         //          })
+         //          .catch(err=>{
+         //             console.log(err);
+         //          });
+         //    })
+         //    .catch((error) => {
+         //       console.error(error);
+         //    });
+         resolve("hello world");
       });
    };
 }
@@ -58,6 +63,9 @@ function fetchNewData() {
                   home: data.home
                });
             });
+      })
+      .catch((err)=>{
+         console.error(err);
       });
 }
 
