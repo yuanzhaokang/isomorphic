@@ -1,11 +1,12 @@
 import React, {PureComponent} from 'react';
+import './label.scss';
 
 class Label extends PureComponent {
    render() {
       const {label, className, ...restProps} = this.props;
 
       return (
-         <span className={`${className}`} {...restProps} >{label}</span>
+         <span className={`label ${className}`} {...restProps} >{label}</span>
       );
    }
 }

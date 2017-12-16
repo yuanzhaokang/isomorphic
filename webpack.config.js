@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
    entry: {
@@ -12,7 +13,13 @@ var config = {
    module: {
       rules: [
          {test: /\.js$/, use: 'babel-loader'},
-         {test: /\.jsx$/, use: 'babel-loader!jsx-loader'}
+         {test: /\.jsx$/, use: 'babel-loader!jsx-loader'},
+         {
+            test: /\.scss$/, use: ExtractTextPlugin.extract({
+               fallback: "style-loader",
+               use: ['css-loader', 'sass-loader']
+            })
+         }
       ]
    },
    resolve: {
@@ -24,6 +31,9 @@ var config = {
    plugins: [
       new webpack.DefinePlugin({
          __isServer: true, // is server rendering.
+      }),
+      new ExtractTextPlugin({
+         filename: 'style.css'
       })
    ]
 };
