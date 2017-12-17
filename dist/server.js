@@ -22071,8 +22071,8 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 
-server.use(express.static(path.join(__dirname, './dist/')));
-server.use(express.static(path.join(__dirname, './static/')));
+server.use(express.static(path.join(__dirname, './')));
+// server.use(express.static(path.join(__dirname, './static/')));
 
 server.use('/', isomorphic);
 server.use('/req/getHome', _getHome2.default);
@@ -33070,7 +33070,7 @@ router.all('*', function (req, res, next) {
          //      </body>
          //  `;
 
-         var html = '\n         <!DOCTYPE html>\n         <html lang="en">\n         <head>\n            <meta charset="UTF-8">\n            <meta name="viewport" content="width=device-width, initial-scale=1.0">\n            <meta http-equiv="X-UA-Compatible" content="ie=edge">\n            <link rel="stylesheet" href="style.scss">\n            <title>isomorphic</title>\n         </head>\n         <body>\n            <script>window.serverState=' + JSON.stringify(_getStore2.default.getState()) + '</script>\n            <div id="app">' + content + '</div>\n            <script src="bundle.js"></script>\n         </body>\n         </html>\n         ';
+         var html = '\n         <!DOCTYPE html>\n         <html lang="en">\n         <head>\n            <meta charset="UTF-8">\n            <meta name="viewport" content="width=device-width, initial-scale=1.0">\n            <meta http-equiv="X-UA-Compatible" content="ie=edge">\n            <link rel="stylesheet" href="style.css">\n            <title>isomorphic</title>\n         </head>\n         <body>\n            <script>window.serverState=' + JSON.stringify(_getStore2.default.getState()) + '</script>\n            <div id="app">' + content + '</div>\n            <script src="bundle.js"></script>\n         </body>\n         </html>\n         ';
 
          res.end(html);
       }).catch(function (err) {

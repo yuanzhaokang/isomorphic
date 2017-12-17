@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --port 3000 --hot --watch --color --open --history-api-fallback",
     "build": "webpack --watch --config webpack.config.js",
-    "server": "node ./dist/server.js",
-    "build-server": "webpack --config webpack.server.config.js"
+    "server": "nodemon ./dist/server.js",
+    "build-server": "webpack --watch --config webpack.server.config.js"
   },
   "author": "windyuan",
   "license": "MIT",
