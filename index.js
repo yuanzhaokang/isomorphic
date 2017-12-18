@@ -11,8 +11,8 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: false}));
 server.use(cookieParser());
 
-server.use(express.static(path.join(__dirname, './')));
-// server.use(express.static(path.join(__dirname, './static/')));
+server.use(express.static(path.resolve('./dist')));
+server.use(express.static(path.resolve('./static')));
 
 server.use('/', isomorphic);
 server.use('/req/getHome', getHome);

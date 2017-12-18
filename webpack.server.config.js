@@ -8,7 +8,7 @@ var config = {
    },
    output: {
       path: __dirname + '/dist',
-      filename: 'server.js'
+      filename: 'server.js',
    },
    module: {
       rules: [
@@ -16,9 +16,12 @@ var config = {
          {test: /\.jsx$/, use: 'babel-loader!jsx-loader'},
          {test: /\.css$/, use: 'null'},
          {
-            test: /\.scss$/, use: [
-               {loader: 'css-loader/locals'},
-            ]
+            test: /\.scss$/,
+               use: [
+                  {
+                     loader: 'css-loader/locals',
+                  }
+               ]
          }
       ]
    },

@@ -228,6 +228,12 @@ module.exports = invariant;
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245,16 +251,10 @@ if (typeof process !== 'undefined' && process.type === 'renderer') {
 }
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("buffer");
-
-/***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = require("path");
+module.exports = require("buffer");
 
 /***/ }),
 /* 7 */
@@ -319,7 +319,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var callSiteToString = __webpack_require__(60).callSiteToString;
 var eventListenerCount = __webpack_require__(60).eventListenerCount;
-var relative = __webpack_require__(6).relative;
+var relative = __webpack_require__(4).relative;
 
 /**
  * Module exports.
@@ -3490,7 +3490,7 @@ module.exports = __webpack_require__(123);
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(6).Buffer;
 
 var bomHandling = __webpack_require__(136),
     iconv = module.exports;
@@ -3857,7 +3857,7 @@ function mixinProperties(obj, proto) {
  */
 
 var createError = __webpack_require__(17);
-var debug = __webpack_require__(4)('send');
+var debug = __webpack_require__(5)('send');
 var deprecate = __webpack_require__(8)('send');
 var destroy = __webpack_require__(171);
 var encodeUrl = __webpack_require__(28);
@@ -3869,7 +3869,7 @@ var mime = __webpack_require__(172);
 var ms = __webpack_require__(63);
 var onFinished = __webpack_require__(27);
 var parseRange = __webpack_require__(82);
-var path = __webpack_require__(6);
+var path = __webpack_require__(4);
 var statuses = __webpack_require__(40);
 var Stream = __webpack_require__(9);
 var util = __webpack_require__(25);
@@ -6898,7 +6898,7 @@ module.exports = require("zlib");
  */
 
 var db = __webpack_require__(156);
-var extname = __webpack_require__(6).extname;
+var extname = __webpack_require__(4).extname;
 
 /**
  * Module variables.
@@ -7329,7 +7329,7 @@ var Route = __webpack_require__(74);
 var Layer = __webpack_require__(75);
 var methods = __webpack_require__(41);
 var mixin = __webpack_require__(31);
-var debug = __webpack_require__(4)('express:router');
+var debug = __webpack_require__(5)('express:router');
 var deprecate = __webpack_require__(8)('express');
 var flatten = __webpack_require__(30);
 var parseUrl = __webpack_require__(19);
@@ -7981,7 +7981,7 @@ function wrap(old, fn) {
  * @private
  */
 
-var debug = __webpack_require__(4)('express:router:route');
+var debug = __webpack_require__(5)('express:router:route');
 var flatten = __webpack_require__(30);
 var Layer = __webpack_require__(75);
 var methods = __webpack_require__(41);
@@ -8204,7 +8204,7 @@ methods.forEach(function (method) {
  */
 
 var pathRegexp = __webpack_require__(167);
-var debug = __webpack_require__(4)('express:router:layer');
+var debug = __webpack_require__(5)('express:router:layer');
 
 /**
  * Module variables.
@@ -8431,7 +8431,7 @@ module.exports = function query(options) {
 
 
 /* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(5);
+var buffer = __webpack_require__(6);
 var Buffer = buffer.Buffer;
 
 // alternative to using Object.keys for old browsers
@@ -8519,7 +8519,7 @@ module.exports.parse = parse;
  * Module dependencies.
  */
 
-var basename = __webpack_require__(6).basename;
+var basename = __webpack_require__(4).basename;
 
 /**
  * RegExp to match non attr-char, *after* encodeURIComponent (i.e. not including "%")
@@ -22050,7 +22050,7 @@ module.exports = memoizeStringOnly;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(__dirname) {
+
 
 var _getHome = __webpack_require__(122);
 
@@ -22061,7 +22061,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var express = __webpack_require__(36);
 var bodyParser = __webpack_require__(59);
 var cookieParser = __webpack_require__(186);
-var path = __webpack_require__(6);
+var path = __webpack_require__(4);
 var isomorphic = __webpack_require__(187);
 
 
@@ -22071,8 +22071,8 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());
 
-server.use(express.static(path.join(__dirname, './')));
-// server.use(express.static(path.join(__dirname, './static/')));
+server.use(express.static(path.resolve('./dist')));
+server.use(express.static(path.resolve('./static')));
 
 server.use('/', isomorphic);
 server.use('/req/getHome', _getHome2.default);
@@ -22080,7 +22080,6 @@ server.use('/req/getHome', _getHome2.default);
 server.listen(3000, function () {
    console.log("start server 3000 !!!");
 });
-/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
 /* 122 */
@@ -22098,7 +22097,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var route = _express2.default.Router();
 
 route.all('/', function (req, res) {
-   res.end(JSON.stringify({ home: '2016年7月29日 - 大家知道,将ES6代码编译为ES5时,我们常用到Babel这个编译工具。大家参考一些网上...再来说transform-object-rest-spread, 其实它是对 ES6中解构赋值的...' }));
+   res.end(JSON.stringify({ home: 'get home req ...' }));
 });
 
 module.exports = route;
@@ -22362,7 +22361,7 @@ function eventListenerCount(emitter, type) {
 var bytes = __webpack_require__(16);
 var contentType = __webpack_require__(24);
 var createError = __webpack_require__(17);
-var debug = __webpack_require__(4)('body-parser:json');
+var debug = __webpack_require__(5)('body-parser:json');
 var read = __webpack_require__(26);
 var typeis = __webpack_require__(18);
 
@@ -23560,7 +23559,7 @@ for (var i = 0; i < modules.length; i++) {
 "use strict";
 
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(6).Buffer;
 
 // Export Node.js internal encodings.
 
@@ -23757,7 +23756,7 @@ module.exports = require("string_decoder");
 "use strict";
 
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(6).Buffer;
 
 // Note: UTF16-LE (or UCS2) codec is Node.js native. See encodings/internal.js
 
@@ -23926,7 +23925,7 @@ function detectEncoding(buf, defaultEncoding) {
 "use strict";
 
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(6).Buffer;
 
 // UTF-7 codec, according to https://tools.ietf.org/html/rfc2152
 // See also below a UTF-7-IMAP codec, according to http://tools.ietf.org/html/rfc3501#section-5.1.3
@@ -24223,7 +24222,7 @@ Utf7IMAPDecoder.prototype.end = function () {
 "use strict";
 
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(6).Buffer;
 
 // Single-byte codec. Needs a 'chars' string parameter that contains 256 or 128 chars that
 // correspond to encoded bytes (if 128 - then lower half is ASCII). 
@@ -24930,7 +24929,7 @@ module.exports = {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(6).Buffer;
 
 // Multibyte codec. In this scheme, a character is represented by 1 or more bytes.
 // Our codec supports UTF-16 surrogates, extensions for GB18030 and unicode sequences.
@@ -25685,7 +25684,7 @@ module.exports = [["8740","䏰䰲䘃䖦䕸𧉧䵷䖳𧲱䳢𧳅㮕䜶䝄䱇䱀�
 "use strict";
 
 
-var Buffer = __webpack_require__(5).Buffer,
+var Buffer = __webpack_require__(6).Buffer,
     Transform = __webpack_require__(9).Transform;
 
 // == Exports ==================================================================
@@ -25805,7 +25804,7 @@ IconvLiteDecoderStream.prototype.collect = function (cb) {
 "use strict";
 
 
-var Buffer = __webpack_require__(5).Buffer;
+var Buffer = __webpack_require__(6).Buffer;
 
 // == Extend Node primitives to use iconv-lite =================================
 
@@ -25836,7 +25835,7 @@ module.exports = function (iconv) {
         };
 
         // -- SlowBuffer -----------------------------------------------------------
-        var SlowBuffer = __webpack_require__(5).SlowBuffer;
+        var SlowBuffer = __webpack_require__(6).SlowBuffer;
 
         original.SlowBufferToString = SlowBuffer.prototype.toString;
         SlowBuffer.prototype.toString = function (encoding, start, end) {
@@ -25993,7 +25992,7 @@ module.exports = function (iconv) {
 
         delete Buffer.isNativeEncoding;
 
-        var SlowBuffer = __webpack_require__(5).SlowBuffer;
+        var SlowBuffer = __webpack_require__(6).SlowBuffer;
 
         SlowBuffer.prototype.toString = original.SlowBufferToString;
         SlowBuffer.prototype.write = original.SlowBufferWrite;
@@ -26430,7 +26429,7 @@ module.exports = {"application/1d-interleaved-parityfec":{"source":"iana"},"appl
  */
 
 var bytes = __webpack_require__(16);
-var debug = __webpack_require__(4)('body-parser:raw');
+var debug = __webpack_require__(5)('body-parser:raw');
 var read = __webpack_require__(26);
 var typeis = __webpack_require__(18);
 
@@ -26534,7 +26533,7 @@ function typeChecker(type) {
 
 var bytes = __webpack_require__(16);
 var contentType = __webpack_require__(24);
-var debug = __webpack_require__(4)('body-parser:text');
+var debug = __webpack_require__(5)('body-parser:text');
 var read = __webpack_require__(26);
 var typeis = __webpack_require__(18);
 
@@ -26660,7 +26659,7 @@ function typeChecker(type) {
 var bytes = __webpack_require__(16);
 var contentType = __webpack_require__(24);
 var createError = __webpack_require__(17);
-var debug = __webpack_require__(4)('body-parser:urlencoded');
+var debug = __webpack_require__(5)('body-parser:urlencoded');
 var deprecate = __webpack_require__(8)('body-parser');
 var read = __webpack_require__(26);
 var typeis = __webpack_require__(18);
@@ -27352,7 +27351,7 @@ var Router = __webpack_require__(73);
 var methods = __webpack_require__(41);
 var middleware = __webpack_require__(168);
 var query = __webpack_require__(76);
-var debug = __webpack_require__(4)('express:application');
+var debug = __webpack_require__(5)('express:application');
 var View = __webpack_require__(169);
 var http = __webpack_require__(13);
 var compileETag = __webpack_require__(10).compileETag;
@@ -27361,7 +27360,7 @@ var compileTrust = __webpack_require__(10).compileTrust;
 var deprecate = __webpack_require__(8)('express');
 var flatten = __webpack_require__(30);
 var merge = __webpack_require__(31);
-var resolve = __webpack_require__(6).resolve;
+var resolve = __webpack_require__(4).resolve;
 var setPrototypeOf = __webpack_require__(42);
 var slice = Array.prototype.slice;
 
@@ -27990,7 +27989,7 @@ function tryRender(view, options, callback) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var debug = __webpack_require__(4)('finalhandler');
+var debug = __webpack_require__(5)('finalhandler');
 var encodeUrl = __webpack_require__(28);
 var escapeHtml = __webpack_require__(29);
 var onFinished = __webpack_require__(27);
@@ -28480,8 +28479,8 @@ exports.init = function (app) {
  * @private
  */
 
-var debug = __webpack_require__(4)('express:view');
-var path = __webpack_require__(6);
+var debug = __webpack_require__(5)('express:view');
+var path = __webpack_require__(4);
 var fs = __webpack_require__(12);
 
 /**
@@ -28746,7 +28745,7 @@ function onOpenClose() {
 "use strict";
 
 
-var path = __webpack_require__(6);
+var path = __webpack_require__(4);
 var fs = __webpack_require__(12);
 
 function Mime() {
@@ -31368,7 +31367,7 @@ var escapeHtml = __webpack_require__(29);
 var http = __webpack_require__(13);
 var isAbsolute = __webpack_require__(10).isAbsolute;
 var onFinished = __webpack_require__(27);
-var path = __webpack_require__(6);
+var path = __webpack_require__(4);
 var statuses = __webpack_require__(40);
 var merge = __webpack_require__(31);
 var sign = __webpack_require__(84).sign;
@@ -32643,7 +32642,7 @@ function vary(res, field) {
 var encodeUrl = __webpack_require__(28);
 var escapeHtml = __webpack_require__(29);
 var parseUrl = __webpack_require__(19);
-var resolve = __webpack_require__(6).resolve;
+var resolve = __webpack_require__(4).resolve;
 var send = __webpack_require__(43);
 var url = __webpack_require__(20);
 
@@ -33040,6 +33039,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var router = __webpack_require__(36).Router();
 
+var path = __webpack_require__(4);
 
 var context = {};
 
@@ -33061,14 +33061,6 @@ router.all('*', function (req, res, next) {
                (0, _reactRouterConfig.renderRoutes)(_router2.default)
             )
          ));
-
-         // let html = `
-         //      <body>
-         //      <script>window.serverState=${JSON.stringify(store.getState())}</script>
-         //          <div id="app">${content}</div>
-         //          <script src="bundle.js"></script>
-         //      </body>
-         //  `;
 
          var html = '\n         <!DOCTYPE html>\n         <html lang="en">\n         <head>\n            <meta charset="UTF-8">\n            <meta name="viewport" content="width=device-width, initial-scale=1.0">\n            <meta http-equiv="X-UA-Compatible" content="ie=edge">\n            <link rel="stylesheet" href="style.css">\n            <title>isomorphic</title>\n         </head>\n         <body>\n            <script>window.serverState=' + JSON.stringify(_getStore2.default.getState()) + '</script>\n            <div id="app">' + content + '</div>\n            <script src="bundle.js"></script>\n         </body>\n         </html>\n         ';
 
@@ -33133,6 +33125,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(34);
 
+var _reactRouterDom = __webpack_require__(112);
+
 __webpack_require__(99);
 
 var _lodash = __webpack_require__(101);
@@ -33170,27 +33164,29 @@ var About = function (_PureComponent) {
    }, {
       key: 'render',
       value: function render() {
-         return _react2.default.createElement(_components.Label, { label: 'About --- ' + this.props.about });
+         return _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/home' },
+            _react2.default.createElement(_components.Label, { label: 'About --- ' + this.props.about })
+         );
       }
    }], [{
       key: 'fetchData',
       value: function fetchData(store) {
          return new Promise(function (resolve, rej) {
-            // fetch(config.server + ":" + config.port + '/data/a.json')
-            //    .then((res) => {
-            //       res.json()
-            //          .then((data) => {
-            //             store.dispatch({
-            //                type: ABOUT,
-            //                about: data.about
-            //             });
-            //             resolve(data);
-            //          });
-            //    })
-            //    .catch((error) => {
-            //       console.error(error);
-            //    })
-            resolve('about');
+            fetch(_config2.default.server + ':' + _config2.default.port + '/data/a.json').then(function (res) {
+               res.json().then(function (data) {
+                  store.dispatch({
+                     type: _action.ABOUT,
+                     about: data.about
+                  });
+                  resolve(data);
+               }).catch(function (err) {
+                  rej(err);
+               });
+            }).catch(function (error) {
+               console.error(error);
+            });
          });
       }
    }]);
@@ -37440,30 +37436,25 @@ var Home = function (_PureComponent) {
       key: 'fetchData',
       value: function fetchData(store) {
          return new Promise(function (resolve, rej) {
-            // fetch(config.server + ":" + config.port + '/data/a.json')
-            //    .then((res) => {
-            //       if(res.status != 200) {
-            //          rej("error");
-            //       }
+            fetch(_config2.default.server + ":" + _config2.default.port + '/data/a.json').then(function (res) {
+               if (res.status != 200) {
+                  rej("error");
+               }
 
-            //       res.text()
-            //          .then((data) => {
-            //             data = JSON.parse(data);
-            //             store.dispatch({
-            //                type: HOME,
-            //                home: data.home
-            //             });
+               res.text().then(function (data) {
+                  data = JSON.parse(data);
+                  store.dispatch({
+                     type: _action.HOME,
+                     home: data.home
+                  });
 
-            //             resolve(data);
-            //          })
-            //          .catch(err=>{
-            //             console.log(err);
-            //          });
-            //    })
-            //    .catch((error) => {
-            //       console.error(error);
-            //    });
-            resolve("hello world");
+                  resolve(data);
+               }).catch(function (err) {
+                  console.log(err);
+               });
+            }).catch(function (error) {
+               console.error(error);
+            });
          });
       }
    }]);

@@ -7,6 +7,7 @@ import {renderToString} from 'react-dom/server';
 import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import React from 'react';
+var path = require('path');
 
 let context = {};
 
@@ -26,14 +27,6 @@ router.all('*', (req, res, next) => {
                </Provider>
             </StaticRouter >
          );
-
-         // let html = `
-         //      <body>
-         //      <script>window.serverState=${JSON.stringify(store.getState())}</script>
-         //          <div id="app">${content}</div>
-         //          <script src="bundle.js"></script>
-         //      </body>
-         //  `;
 
          let html = `
          <!DOCTYPE html>
