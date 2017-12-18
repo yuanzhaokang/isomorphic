@@ -11,7 +11,7 @@ import _ from 'lodash';
 class About extends PureComponent {
    componentDidMount() {
       try {
-         if(__isServer) {
+         if(__isClient) {
             return;
          }
       } catch(error) {

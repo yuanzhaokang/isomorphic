@@ -10,7 +10,7 @@ import _ from 'lodash';
 class Home extends PureComponent {
    componentDidMount() {
       try {
-         if(__isServer) {
+         if(__isClient) {
             return;
          }
       } catch(e) {
