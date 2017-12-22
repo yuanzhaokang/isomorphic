@@ -9,14 +9,6 @@ import _ from 'lodash';
 
 class Home extends PureComponent {
    componentDidMount() {
-      try {
-         if(__isClient) {
-            return;
-         }
-      } catch(e) {
-      }
-
-      Home.fetchData(store);
    }
 
    render() {
@@ -41,7 +33,7 @@ class Home extends PureComponent {
 
                      resolve(data);
                   })
-                  .catch(err=>{
+                  .catch(err => {
                      console.log(err);
                   });
             })
@@ -63,7 +55,7 @@ function fetchNewData() {
                });
             });
       })
-      .catch((err)=>{
+      .catch((err) => {
          console.error(err);
       });
 }

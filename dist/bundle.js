@@ -14114,22 +14114,21 @@ var About = function (_PureComponent) {
 
    _createClass(About, [{
       key: 'componentDidMount',
-      value: function componentDidMount() {
-         try {
-            if (false) {
-               return;
-            }
-         } catch (error) {}
-
-         About.fetchData(_getStore2.default);
-      }
+      value: function componentDidMount() {}
    }, {
       key: 'render',
       value: function render() {
          return _react2.default.createElement(
             _reactRouterDom.Link,
-            { to: '/home' },
-            _react2.default.createElement(_components.Label, { label: 'About --- ' + this.props.about })
+            { to: {
+                  pathname: '/home'
+               } },
+            _react2.default.createElement(_components.Label, { label: 'About --- ' + this.props.about }),
+            _react2.default.createElement(
+               'a',
+               { href: '/home' },
+               'To Home'
+            )
          );
       }
    }], [{
@@ -15761,11 +15760,9 @@ var state = {
    about: 'about init'
 };
 
-try {
-   if (false) {
-      state = Object.assign({}, window.serverState);
-   }
-} catch (error) {}
+if (true) {
+   state = Object.assign({}, window.serverState);
+}
 
 function reducer() {
    var initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : state;
@@ -21222,15 +21219,7 @@ var Home = function (_PureComponent) {
 
    _createClass(Home, [{
       key: 'componentDidMount',
-      value: function componentDidMount() {
-         try {
-            if (false) {
-               return;
-            }
-         } catch (e) {}
-
-         Home.fetchData(_getStore2.default);
-      }
+      value: function componentDidMount() {}
    }, {
       key: 'render',
       value: function render() {

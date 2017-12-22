@@ -33,7 +33,7 @@ var config = {
    },
    plugins: [
       new webpack.DefinePlugin({
-         __isClient: true, // is server rendering.
+         __isClient: false, // is server rendering.
       }),
    ]
 };

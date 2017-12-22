@@ -10,19 +10,16 @@ import _ from 'lodash';
 
 class About extends PureComponent {
    componentDidMount() {
-      try {
-         if(__isClient) {
-            return;
-         }
-      } catch(error) {
-      }
-
-      About.fetchData(store);
    }
 
    render() {
       return (
-         <Link to={'/home'}><Label label={'About --- ' + this.props.about} /></Link>
+         <Link to={{
+            pathname:'/home'
+         }}>
+            <Label label={'About --- ' + this.props.about} />
+            <a href='/home'>To Home</a>
+         </Link>
       );
    }
 
@@ -38,7 +35,7 @@ class About extends PureComponent {
                      });
                      resolve(data);
                   })
-                  .catch((err)=>{
+                  .catch((err) => {
                      rej(err);
                   })
             })

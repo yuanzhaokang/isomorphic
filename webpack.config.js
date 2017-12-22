@@ -30,7 +30,7 @@ var config = {
    },
    plugins: [
       new webpack.DefinePlugin({
-         __isClient: false, // is server rendering.
+         __isClient: true, // is server rendering.
       }),
       new ExtractTextPlugin({
          filename: 'style.css'

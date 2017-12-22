@@ -5,12 +5,8 @@ let state = {
    about: 'about init'
 };
 
-try {
-   if(__isClient) {
-      state = Object.assign({}, window.serverState);
-   }
-} catch(error) {
-
+if(__isClient) {
+   state = Object.assign({}, window.serverState);
 }
 
 function reducer(initState = state, action) {
