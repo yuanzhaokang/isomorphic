@@ -26,14 +26,14 @@ var config = {
       ]
    },
    resolve: {
-      // modules: [
-      //    path.resolve("./node_modules"),
-      //    path.resolve("./")
-      // ]
+      modules: [
+         path.resolve("./node_modules"),
+         path.resolve("./")
+      ]
    },
    plugins: [
       new webpack.DefinePlugin({
-         __isClient: false, // is server rendering.
+         __isClient: false, // is client rendering.
       }),
    ]
 };

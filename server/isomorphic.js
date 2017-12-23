@@ -1,6 +1,11 @@
-import routers from '../router/router';
-import AppContainer from '../client/AppContainer';
-import store from '../common/getStore';
+// import routers from '../router/router';
+// import AppContainer from '../client/AppContainer';
+// import store from '../common/getStore';
+
+import routers from 'router/router';
+import AppContainer from 'client/AppContainer';
+import store from 'common/getStore';
+
 var router = require('express').Router();
 import {renderRoutes, matchRoutes} from 'react-router-config';
 import {renderToString} from 'react-dom/server';

@@ -1,4 +1,4 @@
-import reducer from './reducer/reducer';
+import reducer from 'common/reducer/reducer';
 import {createStore} from 'redux';
 
 let store = createStore(reducer);

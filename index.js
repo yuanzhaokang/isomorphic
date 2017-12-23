@@ -2,8 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var path = require('path');
-var isomorphic = require('./server/isomorphic');
-import getHome from './server/req/getHome';
+var isomorphic = require('server/isomorphic');
+import getHome from 'server/req/getHome';
 
 var server = express();
 

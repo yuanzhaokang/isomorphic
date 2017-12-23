@@ -1,4 +1,4 @@
-import {HOME, ABOUT} from '../action/action';
+import {HOME, ABOUT} from 'common/action/action';
 
 let state = {
    home: 'home init',

@@ -23,14 +23,14 @@ var config = {
       ]
    },
    resolve: {
-      // modules: [
-      //    path.resolve("./node_modules"),
-      //    path.resolve("./")
-      // ]
+      modules: [
+         path.resolve("./node_modules"),
+         path.resolve("./")
+      ]
    },
    plugins: [
       new webpack.DefinePlugin({
-         __isClient: true, // is server rendering.
+         __isClient: true, // is client rendering.
       }),
       new ExtractTextPlugin({
          filename: 'style.css'

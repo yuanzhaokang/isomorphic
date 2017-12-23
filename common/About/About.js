@@ -1,7 +1,7 @@
-import {ABOUT} from '../action/action';
-import {Label} from '../components';
-import config from '../../config/config';
-import store from '../getStore';
+import {ABOUT} from 'common/action/action';
+import {Label} from 'common/components';
+import config from 'config/config';
+import store from 'common/getStore';
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
@@ -18,7 +18,7 @@ class About extends PureComponent {
             pathname:'/home'
          }}>
             <Label label={'About --- ' + this.props.about} />
-            <a href='/home'>To Home</a>
+            {/* <a href='/home'>To Home</a> */}
          </Link>
       );
    }
