@@ -1,5 +1,5 @@
-import About from '../client/About';
-import Home from '../client/Home';
+import About from '../common/About';
+import Home from '../common/Home';
 
 const routes = [
    {

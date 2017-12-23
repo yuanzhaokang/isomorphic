@@ -1,7 +1,7 @@
-import {HOME} from '../../common/action/action';
+import {HOME} from '../action/action';
 import {Label} from '../components';
 import config from '../../config/config';
-import store from '../../common/getStore';
+import store from '../getStore';
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import 'isomorphic-fetch';

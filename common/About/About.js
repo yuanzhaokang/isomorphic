@@ -1,7 +1,7 @@
-import {ABOUT} from '../../common/action/action';
+import {ABOUT} from '../action/action';
 import {Label} from '../components';
 import config from '../../config/config';
-import store from '../../common/getStore';
+import store from '../getStore';
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
