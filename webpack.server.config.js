@@ -17,11 +17,11 @@ var config = {
          {test: /\.css$/, use: 'null'},
          {
             test: /\.scss$/,
-               use: [
-                  {
-                     loader: 'css-loader/locals',
-                  }
-               ]
+            use: [
+               {
+                  loader: 'css-loader/locals',
+               }
+            ]
          }
       ]
    },
@@ -33,6 +33,9 @@ var config = {
    },
    plugins: [
       new webpack.DefinePlugin({
+         'process.env': {
+            'NODE_ENV': 'development'
+         },
          __isClient: false, // is client rendering.
       }),
    ]
