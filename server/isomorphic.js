@@ -1,7 +1,3 @@
-// import routers from '../router/router';
-// import AppContainer from '../client/AppContainer';
-// import store from '../common/getStore';
-
 import routers from 'router/router';
 import AppContainer from 'client/AppContainer';
 import store from 'common/getStore';

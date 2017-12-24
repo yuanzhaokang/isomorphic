@@ -1,5 +1,5 @@
-import App from './App';
-import store from '../common/getStore';
+import App from 'client/App';
+import store from 'common/getStore';
 import React, {PureComponent} from 'react';
 import {Provider} from 'react-redux';
 

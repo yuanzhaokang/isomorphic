@@ -1,5 +1,3 @@
-// import About from '../common/About';
-// import Home from '../common/Home';
 import About from 'common/About';
 import Home from 'common/Home';
 

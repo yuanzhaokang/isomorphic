@@ -1,4 +1,4 @@
-import router from '../router/router';
+import router from 'router/router';
 import {render} from 'react-dom';
 import {renderRoutes} from 'react-router-config';
 import React, {PureComponent} from 'react';
