@@ -4,7 +4,7 @@ import config from 'config/config';
 import store from 'common/getStore';
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import 'isomorphic-fetch';
 import _ from 'lodash';
 
@@ -14,12 +14,9 @@ class About extends PureComponent {
 
    render() {
       return (
-         <Link to={{
-            pathname:'/home'
-         }}>
+         <a href="/home">
             <Label label={'About --- ' + this.props.about} />
-            {/* <a href='/home'>To Home</a> */}
-         </Link>
+         </a>
       );
    }
 

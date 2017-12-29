@@ -13,7 +13,7 @@ class AppContainer extends PureComponent {
          <Provider store={store}>
             <App />
          </Provider>
-      )
+      );
    }
 }
 

@@ -33,9 +33,9 @@ var config = {
    },
    plugins: [
       new webpack.DefinePlugin({
-         'process.env': {
-            'NODE_ENV': 'development'
-         },
+         // 'process.env': {
+         //    'NODE_ENV': 'development'
+         // },
          __isClient: false, // is client rendering.
       }),
    ]
