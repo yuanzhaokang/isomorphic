@@ -7,8 +7,6 @@ import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import React from 'react';
 
-let context = {};
-
 class ServerRenderingService {
    constructor(matchUrl) {
       this.matchUrl = matchUrl;
@@ -25,6 +23,7 @@ class ServerRenderingService {
          return Promise.all(promises)
             .then(() => {
                return new Promise((res, rej) => {
+                  let context = {};
                   let content = renderToString(
                      <StaticRouter location={this.matchUrl} context={context}>
                         <Provider store={store}>
