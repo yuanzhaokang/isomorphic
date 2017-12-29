@@ -1,9 +1,8 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var path = require('path');
-var isomorphic = require('server/isomorphic');
-import getHome from 'server/req/getHome';
+import express from 'express';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import path from 'path';
+import {ServerRenderingRouter} from 'server/router';
 
 var server = express();
 
@@ -14,8 +13,7 @@ server.use(cookieParser());
 server.use(express.static(path.resolve('./dist')));
 server.use(express.static(path.resolve('./static')));
 
-server.use('/', isomorphic);
-server.use('/req/getHome', getHome);
+server.use('/', ServerRenderingRouter);
 
 server.listen(3000, function () {
    console.log("start server 3000 !!!");
