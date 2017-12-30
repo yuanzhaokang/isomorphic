@@ -6,7 +6,6 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 // import {Link} from 'react-router-dom';
 import 'isomorphic-fetch';
-import _ from 'lodash';
 
 class About extends PureComponent {
    componentDidMount() {

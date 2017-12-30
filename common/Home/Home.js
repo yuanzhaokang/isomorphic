@@ -5,7 +5,6 @@ import store from 'common/getStore';
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import 'isomorphic-fetch';
-import _ from 'lodash';
 
 class Home extends PureComponent {
    componentDidMount() {
