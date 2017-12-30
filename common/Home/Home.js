@@ -4,6 +4,7 @@ import config from 'config/config';
 import store from 'common/getStore';
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import 'isomorphic-fetch';
 
 class Home extends PureComponent {
@@ -11,7 +12,9 @@ class Home extends PureComponent {
    }
 
    render() {
-      return <Label label={'Home --- ' + this.props.home} onClick={this.props.fetchNewData} />;
+      return <Label label={'Home --- ' + this.props.home}
+      // onClick={this.props.fetchNewData}
+      />;
    }
 
    static fetchData(store) {
@@ -43,21 +46,21 @@ class Home extends PureComponent {
    };
 }
 
-function fetchNewData() {
-   fetch(`${config.server}:${config.port}/req/getHome`)
-      .then((res) => {
-         res.json()
-            .then((data) => {
-               store.dispatch({
-                  type: HOME,
-                  home: data.home
-               });
-            });
-      })
-      .catch((err) => {
-         console.error(err);
-      });
-}
+// function fetchNewData() {
+//    fetch(`${config.server}:${config.port}/req/getHome`)
+//       .then((res) => {
+//          res.json()
+//             .then((data) => {
+//                store.dispatch({
+//                   type: HOME,
+//                   home: data.home
+//                });
+//             });
+//       })
+//       .catch((err) => {
+//          console.error(err);
+//       });
+// }
 
 const mapStateToProps = (state, ownProps) => {
    return {
@@ -67,8 +70,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
    return {
-      fetchNewData: fetchNewData
-   }
+      dispatch
+   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
